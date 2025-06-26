@@ -1,0 +1,28 @@
+{
+  "vendor": true,
+  "nodeModulesDir": "manual",
+  "imports": {
+    "@/": "./scripts/",
+    "@std/path": "jsr:@std/path@^1.0.8",
+    "postcss": "npm:postcss@^8.5.6",
+    "usercss-meta": "npm:usercss-meta@0.12.0",
+    "less": "npm:less@^4.3.0"
+  },
+  "tasks": {
+    "stylus-storage": "deno run -A ./scripts/stylus-storage/main.ts"
+  },
+  "fmt": {
+    "indentWidth": 2,
+    "proseWrap": "never"
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [
+        "verbatim-module-syntax"
+      ]
+    }
+  }
+}

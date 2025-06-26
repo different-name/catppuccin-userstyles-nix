@@ -49,16 +49,31 @@ async function getUserstylesOptions(): Promise<UserstylesOptions> {
   return json;
 }
 
-function getUserstylesOption(userstylesOptions: UserstylesOptions, key: string, subKey: string): string | number | null {
+function getUserstylesOption(
+  userstylesOptions: UserstylesOptions,
+  key: string,
+  subKey: string,
+): string | number | null {
   if (!(key in userstylesOptions)) return null;
   if (!(subKey in userstylesOptions[key])) return null;
   return userstylesOptions[key][subKey];
 }
 
-function bakeUserstyleVar(name: string, info: unknown, metadata: usercssMeta.Metadata, userstylesOptions: UserstylesOptions): string {
-  let value = getUserstylesOption(userstylesOptions, `Userstyle ${metadata.name}`, name);
+function bakeUserstyleVar(
+  name: string,
+  info: unknown,
+  metadata: usercssMeta.Metadata,
+  userstylesOptions: UserstylesOptions,
+): string {
+  let value = getUserstylesOption(
+    userstylesOptions,
+    `Userstyle ${metadata.name}`,
+    name,
+  );
 
-  if (value === null) value = getUserstylesOption(userstylesOptions, "global", name);
+  if (value === null) {
+    value = getUserstylesOption(userstylesOptions, "global", name);
+  }
 
   if (
     value === null &&
@@ -73,10 +88,13 @@ function bakeUserstyleVar(name: string, info: unknown, metadata: usercssMeta.Met
     throw new Error(`Could not find value for ${metadata.name} ${name}`);
   }
 
-  return `@${name}: ${value};`
+  return `@${name}: ${value};`;
 }
 
-function generateSections(userstyleBlock: string, css: string): Record<string, unknown>[] {
+function generateSections(
+  userstyleBlock: string,
+  css: string,
+): Record<string, unknown>[] {
   const cssRoot: postcss.Root = postcss.parse(css);
 
   const sections = [
@@ -106,7 +124,7 @@ function generateSections(userstyleBlock: string, css: string): Record<string, u
       const match = condition.match(/^([\w-]+)\("(.+)"\)$/);
 
       if (match) {
-        const value = match[2].replace(/\\\\/g, '\\');
+        const value = match[2].replace(/\\\\/g, "\\");
 
         switch (match[1]) {
           case "domain":
@@ -133,7 +151,7 @@ function generateSections(userstyleBlock: string, css: string): Record<string, u
   const unhandledCss = cssRoot.toString().trim();
   if (unhandledCss.length > 0) {
     throw new Error(`Unhandled CSS '${unhandledCss}'`);
-  };
+  }
 
   return sections;
 }
@@ -162,7 +180,8 @@ async function generateStorageData(): Promise<Record<string, unknown>> {
 
     const vars = metadata.vars || {};
     const lessVars = Object.entries(vars).map(
-      ([name, info]) => bakeUserstyleVar(name, info, metadata, userstylesOptions)
+      ([name, info]) =>
+        bakeUserstyleVar(name, info, metadata, userstylesOptions),
     ).join("\n");
     for (const key in metadata.vars) {
       delete metadata.vars[key];

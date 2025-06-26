@@ -9,10 +9,9 @@ Generated Stylus storage.js for Catppuccin Userstyles
 
 ## Usage
 
-Documentation WIP, for usage examples see:
+Documentation WIP, for usage example see this commit:
 
-- This commit: https://github.com/different-name/nix-files/commit/d301908cf85de4ba45334e46be4bc4195778b39d
-- This PR: https://github.com/Anomalocaridid/dotfiles/pull/5
+https://github.com/different-name/nix-files/commit/d301908cf85de4ba45334e46be4bc4195778b39d
 
 ## Acknowledgements
 

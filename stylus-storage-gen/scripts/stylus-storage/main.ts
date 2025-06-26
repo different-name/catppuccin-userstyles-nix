@@ -153,6 +153,10 @@ async function generateStorageData(): Promise<Record<string, unknown>> {
     const content = await Deno.readTextFile(file);
     const { metadata } = usercssMeta.parse(content);
 
+    if ("updateURL" in metadata) {
+      delete metadata.updateURL;
+    }
+
     const fileInfo = await Deno.stat(file);
     const mtime = fileInfo.mtime ? fileInfo.mtime.getTime() : 0;
 
@@ -191,7 +195,6 @@ async function generateStorageData(): Promise<Record<string, unknown>> {
       description: metadata.description,
       author: metadata.author,
       url: metadata.url,
-      updateUrl: metadata.updateURL,
       usercssData: metadata,
       sourceCode: userstyleBlockNoVars + contentBakedVars,
       sections: sections,

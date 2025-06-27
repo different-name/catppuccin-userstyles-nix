@@ -38,6 +38,15 @@
         packages = {
           inherit stylus-storage-gen catppuccin-stylus-storage;
         };
+
+        stylusSettings =
+          userstylesOptions:
+          pkgs.lib.pipe catppuccin-stylus-storage [
+            (pkg: pkg.override { inherit userstylesOptions; })
+            (dir: dir + /share/storage.js)
+            builtins.readFile
+            builtins.fromJSON
+          ];
       }
     );
 }

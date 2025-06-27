@@ -52,28 +52,11 @@
         "type": "github"
       }
     },
-    "nixpkgs-deno": {
-      "locked": {
-        "lastModified": 1732443528,
-        "narHash": "sha256-Azj+5Q/jwwTk4nynUBUuzjNj6LAwqHquForethKFbgA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "47ebca5fe22ffc9566e7d2ec11245a9db0135716",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "47ebca5fe22ffc9566e7d2ec11245a9db0135716",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "catppuccin-userstyles": "catppuccin-userstyles",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-deno": "nixpkgs-deno",
         "systems": "systems"
       }
     },

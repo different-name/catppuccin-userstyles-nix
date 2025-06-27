@@ -14,9 +14,6 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # https://github.com/NixOS/nixpkgs/pull/358223
-    nixpkgs-deno.url = "github:nixos/nixpkgs/47ebca5fe22ffc9566e7d2ec11245a9db0135716";
-
     systems.url = "github:nix-systems/default-linux";
   };
 
@@ -26,11 +23,8 @@
       system:
       let
         pkgs = import inputs.nixpkgs { inherit system; };
-        pkgs-deno = import inputs.nixpkgs-deno { inherit system; };
 
-        stylus-storage-gen = pkgs.callPackage ./pkgs/stylus-storage-gen.nix {
-          inherit (pkgs-deno) deno;
-        };
+        stylus-storage-gen = pkgs.callPackage ./pkgs/stylus-storage-gen.nix { };
 
         catppuccin-stylus-storage =
           (pkgs.callPackage ./pkgs/catppuccin-stylus-storage.nix {

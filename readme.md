@@ -82,4 +82,3 @@ in
 ## Acknowledgements
 
 - https://github.com/catppuccin/userstyles for the userstyles & base script
-- https://github.com/catppuccin/nix for the README usage example

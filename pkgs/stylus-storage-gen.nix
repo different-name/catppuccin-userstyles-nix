@@ -18,7 +18,7 @@ stdenv.mkDerivation {
 
   denoDeps = deno.fetchDeps {
     inherit pname src;
-    hash = "sha256-ibQ5vLcd8fc4HOs+q7aDLwKP+dPp9f4bR4Vp2msm5V0=";
+    hash = "sha256-hIE+NirinnzDri7iz7gkLPINjibF64//yChz/2F0GP8=";
     denoInstallFlags = lib.cli.toGNUCommandLine { } {
       entrypoint = "./scripts/stylus-storage/main.ts";
     };

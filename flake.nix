@@ -1,5 +1,5 @@
 {
-  description = "Generate Stylus `storage.js` from declarative Catppuccin Userstyle settings for use with Firefox, LibreWolf, or Floorp";
+  description = "Generate Stylus settings with Catppuccin Userstyles configured & installed";
 
   inputs = {
     catppuccin-userstyles = {

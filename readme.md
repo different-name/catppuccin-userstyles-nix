@@ -1,6 +1,6 @@
 # catppuccin-userstyles-nix
 
-Generate Stylus `storage.js` from declarative Catppuccin Userstyle settings for use with Firefox, LibreWolf, or Floorp
+Generate Stylus settings with Catppuccin Userstyles configured & installed
 
 > [!WARNING]
 > This flake is in early development and may be unstable
@@ -22,7 +22,7 @@ catppuccin-userstyles-nix = {
 
 You can configure Stylus settings declaratively using the Firefox, LibreWolf, or Floorp Home Manager modules
 
-This flake provides a `stylusSettings.<system>` function that generates Stylus settings with Catppuccin themes configured & installed
+This flake provides a `stylusSettings.<system>` function that generates Stylus settings with Catppuccin Userstyles configured & installed
 
 ```nix
 let

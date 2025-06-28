@@ -27,9 +27,17 @@
         stylus-storage-gen = pkgs.callPackage ./pkgs/stylus-storage-gen.nix { };
 
         catppuccin-stylus-storage =
-          (pkgs.callPackage ./pkgs/catppuccin-stylus-storage.nix {
-            inherit stylus-storage-gen;
-          }).overrideAttrs
+          builtins.warn
+            ''
+              catppuccin-userstyles-nix has been superseded and is now deprecated
+              The project has moved a fork of catppuccin/nix:
+                https://github.com/different-name/catppuccin-nix/tree/userstyles
+              Follow the PR progress here:
+                https://github.com/catppuccin/nix/pull/591
+            ''
+            (pkgs.callPackage ./pkgs/catppuccin-stylus-storage.nix {
+              inherit stylus-storage-gen;
+            }).overrideAttrs
             {
               src = inputs.catppuccin-userstyles;
             };

@@ -1,11 +1,13 @@
+> [!WARNING]
+> This repository has been superseded and is now archived
+> 
+> The project has moved a fork of catppuccin/nix: https://github.com/different-name/catppuccin-nix/tree/userstyles
+> 
+> Follow the PR progress here: https://github.com/catppuccin/nix/pull/591
+
 # catppuccin-userstyles-nix
 
 Generate Stylus settings with Catppuccin Userstyles configured & installed
-
-> [!WARNING]
-> This flake is in early development and may be unstable
-> 
-> Please report bugs or request features via the [issues tab](https://github.com/different-name/catppuccin-userstyles-nix/issues)
 
 ## Usage
 
